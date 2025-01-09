@@ -3,11 +3,10 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MariaModule } from './maria/maria.module';
 import { JordyModule } from './jordy/jordy.module';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGO_URI), MariaModule, JordyModule],
+  imports: [DatabaseModule, MariaModule, JordyModule, DatabaseModule],
   controllers: [],
   providers: [],
 })
